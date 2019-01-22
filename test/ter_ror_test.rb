@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class TerRor::Test < ActiveSupport::TestCase
-  test "truth" do
-    assert_kind_of Module, TerRor
+  test "config has proper type" do
+    assert_instance_of TerRor::Config, TerRor.config
+  end
+
+  test "configure yields config" do
+    TerRor.configure do |config|
+      assert_equal TerRor.config, config
+    end
   end
 end

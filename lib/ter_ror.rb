@@ -1,5 +1,12 @@
 require "ter_ror/railtie"
+require "ter_ror/config"
 
 module TerRor
-  # Your code goes here...
+  def self.config
+    @config ||= Config.new
+  end
+
+  def self.configure
+    yield config
+  end
 end
