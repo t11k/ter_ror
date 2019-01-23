@@ -3,5 +3,9 @@ module TerRor
     def initialize(messages)
       @messages = messages
     end
+
+    def get(code)
+      @messages[code]
+    end
   end
 end

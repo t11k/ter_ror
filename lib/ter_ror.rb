@@ -1,21 +1,31 @@
 require "ter_ror/railtie"
 require "ter_ror/config"
 require "ter_ror/loader"
+require "ter_ror/record"
+require "ter_ror/serializer"
 
 module TerRor
   class << self
     attr_accessor :codes, :messages
-  end
 
-  def self.config
-    @config ||= Config.new
-  end
+    def config
+      @config ||= Config.new
+    end
 
-  def self.configure
-    yield config
-  end
+    def configure
+      yield config
+    end
 
-  def self.load(pathname)
-    Loader.call(pathname)
+    def init(app)
+      self.load(app.root)
+    end
+
+    def load(pathname)
+      Loader.call(pathname)
+    end
+
+    def serialize(record)
+      Serializer.call(record)
+    end
   end
 end

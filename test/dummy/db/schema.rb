@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_155224) do
+ActiveRecord::Schema.define(version: 2019_01_23_222540) do
 
   create_table "terrorists", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "phone"
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "kind"
+    t.string "serial_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,6 @@
+1001: "Name can't be blank"
+1002: "Email already taken"
+1003: "Phone format is invalid"
+
+2001: "Weapon must be one of: Whire, Firearm."
+2002: "Serial number must be in format: '1111-2222-3333-4444-DE'."

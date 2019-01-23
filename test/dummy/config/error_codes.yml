@@ -1,0 +1,7 @@
+terrorist:
+  name_blank: 1001
+  email_taken: 1002
+  phone_invalid: 1003
+weapon:
+  kind_inclusion: 2001
+  serial_number_invalid: 2002

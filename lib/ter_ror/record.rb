@@ -18,7 +18,7 @@ module TerRor
           classes.unshift klass.model_name.singular
           klass = klass.superclass
 
-          break if klass == root_class
+          break if klass == root
         end
       end
     end
