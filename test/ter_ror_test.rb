@@ -10,4 +10,16 @@ class TerRor::Test < ActiveSupport::TestCase
       assert_equal TerRor.config, config
     end
   end
+
+  test "loads definitions" do
+    TerRor.codes = nil
+    TerRor.messages = nil
+
+    path = Dummy::Application.new.root
+
+    TerRor.load(path)
+    
+    assert_instance_of TerRor::Codes, TerRor.codes
+    assert_instance_of TerRor::Messages, TerRor.messages
+  end
 end
