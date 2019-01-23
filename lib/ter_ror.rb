@@ -3,6 +3,7 @@ require "ter_ror/config"
 require "ter_ror/loader"
 require "ter_ror/record"
 require "ter_ror/serializer"
+require "ter_ror/model"
 
 module TerRor
   class << self
@@ -18,6 +19,8 @@ module TerRor
 
     def init(app)
       self.load(app.root)
+
+      ApplicationRecord.include(TerRor::Model)
     end
 
     def load(pathname)
