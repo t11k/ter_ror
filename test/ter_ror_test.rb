@@ -11,15 +11,17 @@ class TerRor::Test < ActiveSupport::TestCase
     end
   end
 
-  test "loads definitions" do
+  test "application init" do
     TerRor.codes = nil
     TerRor.messages = nil
 
-    path = Dummy::Application.new.root
+    app = Dummy::Application.new
 
-    TerRor.load(path)
+    TerRor.init(app)
     
     assert_instance_of TerRor::Codes, TerRor.codes
     assert_instance_of TerRor::Messages, TerRor.messages
+    assert_includes ApplicationController, TerRor::Controller
+    assert_includes ApplicationRecord, TerRor::Model
   end
 end

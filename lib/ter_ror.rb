@@ -1,9 +1,9 @@
 require "ter_ror/railtie"
 require "ter_ror/config"
 require "ter_ror/loader"
+require "ter_ror/helpers"
 require "ter_ror/record"
 require "ter_ror/serializer"
-require "ter_ror/model"
 
 module TerRor
   class << self
@@ -18,13 +18,8 @@ module TerRor
     end
 
     def init(app)
-      self.load(app.root)
-
-      ApplicationRecord.include(TerRor::Model)
-    end
-
-    def load(pathname)
-      Loader.call(pathname)
+      Loader.call(app.root)
+      Helpers.include!
     end
 
     def serialize(record)
